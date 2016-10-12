@@ -5,7 +5,7 @@ class CartsController < ApplicationController
 
   def add_item
     product_id = params[:product_id].to_s
-
+    # calling cart method without () and putting product_id into the thing it returned
     item = cart[product_id] || { "quantity" => 0 }
     item["quantity"] += 1
     cart[product_id] = item
