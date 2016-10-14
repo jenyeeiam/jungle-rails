@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     delete :remove_item
   end
 
+  resource :empty_cart, only: [:show]
+
   resources :orders, only: [:create, :show]
 
   namespace :admin do
