@@ -3,7 +3,6 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all.order(created_at: :desc)
 
-    puts @products.inspect
   end
 
   def show
