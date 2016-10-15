@@ -7,6 +7,12 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find params[:id]
+
+    if @product.reviews
+      @reviews = @product.reviews
+      @reviews
+    end
+
   end
 
 end
