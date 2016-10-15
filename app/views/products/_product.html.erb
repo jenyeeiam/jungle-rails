@@ -9,8 +9,12 @@
     <%= product.description %>
   </p>
   <footer class="actions">
-    <%= link_to add_item_cart_path(product_id: product.id), class: 'btn btn-primary', method: :put do %>
-      <%= fa_icon "shopping-cart", text: 'Add' %>
+    <% if product.quantity == 0%>
+      <span class="sold-out"><em>Sold out</em></span>
+    <% else %>
+      <%= link_to add_item_cart_path(product_id: product.id), class: 'btn btn-primary', method: :put do %>
+        <%= fa_icon "shopping-cart", text: 'Add' %>
+      <% end %>
     <% end %>
     <%= link_to product, class: 'btn btn-default pull-right' do %>
       Details &raquo;
@@ -22,7 +26,7 @@
   </aside>
 
   <% if product.quantity == 0  %>
-    <aside class="sold-out">
+    <aside class="sold-out banner">
      <p>SOLD OUT</p>
     </aside>
   <% end %>

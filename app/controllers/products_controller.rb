@@ -11,10 +11,11 @@ class ProductsController < ApplicationController
     @review = @product.reviews.new
     # if this particular product has reviews, pass them down to the view
 
-    if @product.reviews
-      @all_reviews = @product.reviews
-      @all_reviews
-    end
+    # if @product.reviews
+    @all_reviews = @product.reviews
+    @all_reviews
+    puts @all_reviews.inspect
+    # end
   end
 
 

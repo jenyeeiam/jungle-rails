@@ -38,6 +38,11 @@ main section.categories-show {
         width: 100%;
         opacity: 0.3;
         transition: all 0.3s;
+
+        .sold-out {
+          font-size: 1.5em;
+          margin-left: 20px;
+        }
       }
 
       aside.price {
@@ -93,3 +98,9 @@ main section.products-show {
   width: 500px;
   border: 1px solid #eee;
 }
+
+.notification {
+  margin-left: 25px;
+  font-style: italic;
+}
+

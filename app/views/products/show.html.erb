@@ -48,9 +48,13 @@
 
 
       <div class="row">
-        <h3>Customer Reviews</h3>
-        <% @all_reviews.reverse.each do |review| %>
-          <%= render 'review', review: review %>
+        <% unless @all_reviews[0].id.nil? %>
+          <h3>Customer Reviews</h3>
+          <% @all_reviews.reverse.each do |review| %>
+            <%= render 'review', review: review %>
+          <% end %>
+        <% else %>
+          <h3><em>No reviews yet</em></h3>
         <% end %>
       </div>
 

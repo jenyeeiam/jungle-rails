@@ -15,7 +15,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @cart_total = 0 %>
+        <% humanized_money_with_symbol @cart_total = 0 %>
         <% cart.each do |product_id, details| %>
           <%= render 'item', product_id: product_id, details: details %>
         <% end %>
@@ -26,7 +26,7 @@
             TOTAL:
           </th>
           <th>
-            <%= @cart_total %>
+            <%= humanized_money_with_symbol @cart_total %>
           </th>
         </tr>
       </tfoot>
@@ -35,17 +35,21 @@
 
   <div class="row">
     <div class="col-xs-12">
-      <%= form_tag orders_path do %>
-        <script
-          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-amount="<%= @cart_total * 100 %>"
-          data-name="Jungle"
-          data-description="Khurram Virani's Jungle Order"
-          data-locale="auto"
-          data-email="kvirani@gmail.com"
-          data-currency="cad">
-        </script>
+      <% if current_user.nil? %>
+        <p><em>Please sign in or create an account before checking out</em></p>
+      <% else %>
+        <%= form_tag(orders_path) do %>
+          <script
+            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-amount="<%= @cart_total * 100 %>"
+            data-name="Jungle"
+            data-description="Khurram Virani's Jungle Order"
+            data-locale="auto"
+            data-email="kvirani@gmail.com"
+            data-currency="cad">
+          </script>
+        <% end %>
       <% end %>
     </div>
   </div>
