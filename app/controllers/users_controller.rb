@@ -9,6 +9,8 @@ class UsersController < ApplicationController
     if @user.save
       flash[:notice] = "Created a user"
       puts "created a user"
+      session[:user_id] = @user.id
+      @user.authenticate(params[:password])
       redirect_to [:root]
     else
       flash[:notice] = "Fill in all the fields wanker"

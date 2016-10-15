@@ -1,10 +1,26 @@
-<h1>Login</h1>
-
-<%= form_tag '/login' do %>
-  First Name: <%= text_field_tag :first_name %>
-  Last Name: <%= text_field_tag :last_name %>
-  Email: <%= text_field_tag :email %>
-  Password: <%= password_field_tag :password %>
-  <%= submit_tag "Submit" %>
-
-<% end %>
+<div class="row">
+<div class="col-md-4"></div>
+<div class="col-md-4">
+  <h1>Login</h1>
+  <%= form_tag :login do %>
+  <div class="form-group">
+    <p>First Name: </p>
+    <%= text_field_tag :first_name, "", :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <p>Last Name: </p>
+    <p><%= text_field_tag :last_name, "", :class => "form-control" %></p>
+  </div>
+  <div class="form-group">
+    <p>Email: </p>
+    <p><%= text_field_tag :email, "", :class => "form-control" %></p>
+  </div>
+  <div class="form-group">
+    <p>Password: </p>
+    <p><%= password_field_tag :password, "", :class => "form-control" %></p>
+  </div>
+    <p><%= submit_tag "Submit" %></p>
+  <% end %>
+</div>
+<div class="col-md-4"></div>
+</div>

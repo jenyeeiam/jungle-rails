@@ -1,8 +1,15 @@
 
 <% unless review.user.nil? %>
 <% user = User.find_by(id: review.user_id) %>
-<div>
- <p>Customer: <%= user.first_name %></p>
- <p>Review: <%= review.description %></p>
+<div class="product-review">
+  <p><strong>Rating:</strong> <%= review.rating%>/5 </p>
+  <p><em>By: <%= user.first_name %></em></p>
+  <p><em><%= review.description %>
+    <% if current_user && current_user.id == review.user_id %>
+      <span>
+        <%= link_to fa_icon('trash'), product_review_path(@product, review), class: 'btn btn-xs btn-danger', method: :delete, data: { confirm: "Delete this review?" } %>
+      </span>
+    <% end %>
+  </em></p>
 </div>
 <% end %>

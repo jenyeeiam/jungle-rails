@@ -1,14 +1,31 @@
+<div class="row">
+<div class="col-md-4"></div>
+<div class="col-md-4">
+  <h1>Signup!</h1>
+  </br>
+  <%= form_for @user do |f| %>
+    <div class="form-group">
+      <p>First Name: </p>
+      <%= f.text_field :first_name, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <p>Last Name: </p>
+      <%= f.text_field :last_name, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <p>Email: </p>
+      <%= f.text_field :email, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <p>Password: </p>
+      <%= f.password_field :password, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <p>Password Confirmation: </p>
+      <%= f.password_field :password_confirmation, :class => "form-control" %>
+    </div>
+    <%= f.submit "Submit" %>
 
-
-<h1>Signup!</h1>
-
-<%= form_for @user do |f| %>
-
-  First Name: <%= f.text_field :first_name %>
-  Last Name: <%= f.text_field :last_name %>
-  Email: <%= f.text_field :email %>
-  Password: <%= f.password_field :password %>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
-  <%= f.submit "Submit" %>
-
-<% end %>
+  <% end %>
+</div>
+<div class="col-md-4"></div>

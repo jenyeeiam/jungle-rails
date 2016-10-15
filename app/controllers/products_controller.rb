@@ -7,13 +7,17 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find params[:id]
+    # create a new instance for a review in the context of the particular product
     @review = @product.reviews.new
-    if @product.reviews
-      @reviews = @product.reviews
-      @reviews
-    end
+    # if this particular product has reviews, pass them down to the view
 
+    if @product.reviews
+      @all_reviews = @product.reviews
+      @all_reviews
+    end
   end
+
+
 
 end
 
