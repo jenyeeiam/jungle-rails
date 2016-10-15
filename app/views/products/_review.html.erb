@@ -1,6 +1,8 @@
-<% user = User.find_by(id: review.user_id) %>
 
+<% unless review.user.nil? %>
+<% user = User.find_by(id: review.user_id) %>
 <div>
  <p>Customer: <%= user.first_name %></p>
  <p>Review: <%= review.description %></p>
 </div>
+<% end %>
