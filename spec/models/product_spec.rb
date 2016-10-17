@@ -12,7 +12,6 @@ RSpec.describe Product, type: :model do
       @product.name = nil
       @product.save
       expect(@product.errors.size).to eq(1)
-      # puts @product.errors.full_messages
     end
 
     it 'should validate presence of price_cents' do
@@ -21,11 +20,10 @@ RSpec.describe Product, type: :model do
       expect(@product.price_cents).to_not be_present
     end
 
-    xit 'should validate presence of quantity' do
+    it 'should validate presence of quantity' do
       @product.quantity = nil
       @product.save
       expect(@product.errors.size).to eq(1)
-      puts @product.errors.full_messages
     end
 
     it 'should validate presence of category_id' do
