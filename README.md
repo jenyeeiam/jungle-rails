@@ -26,3 +26,10 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 * Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
 * PostgreSQL 9.x
 * Stripe
+
+## Install mailcatcher
+rvm default@mailcatcher --create do gem install mailcatcher
+rvm wrapper default@mailcatcher --no-prefix mailcatcher catchmail
+
+#initialize the ports in Vagrant
+mailcatcher --ip=0.0.0.0 --smtp-port 5001 --http-port 3001
