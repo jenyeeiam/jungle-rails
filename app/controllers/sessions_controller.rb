@@ -1,13 +1,21 @@
 class SessionsController < ApplicationController
 
+  # def create
+  #   user = User.find_by email: (params[:email])
+  #   if user && user.authenticate(params[:password])
+  #     session[:user_id] = user.id
+  #     redirect_to [:root], notice: "Welcome #{user.first_name}"
+  #   else
+  #     redirect_to login_path, notice: "Did you fill in all the fields?"
+  #   end
+  # end
   def create
     user = User.find_by email: (params[:email])
-
-    if user && user.authenticate(params[:password])
+    if user = User.authenticate_with_credentials(params[:email], params[:password])
       session[:user_id] = user.id
       redirect_to [:root], notice: "Welcome #{user.first_name}"
     else
-      redirect_to login_path, notice: "Did you fill in all the fields?"
+      redirect_to login_path, notice: "Try again"
     end
   end
 
